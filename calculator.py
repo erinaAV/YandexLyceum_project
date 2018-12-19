@@ -1,14 +1,16 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow
-from PyQt5 import uic
+from PyQt5 import uic, QtCore, QtGui, QtWidgets
 import math
 from random import random
+#from QWERTY import *
 
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('design.ui',self)
+        uic.loadUi('Work.ui',self)
+        ##кнопки калькулятора
         [i.clicked.connect(self.run) for i in self.buttonGroup_numbers.buttons()]
         [i.clicked.connect(self.calc) for i in self.buttonGroup_binary.buttons()]
         self.pushButton_comma.clicked.connect(self.run)
@@ -22,9 +24,20 @@ class MainWindow(QMainWindow):
         self.pushButton_random.clicked.connect(self.random)
         self.pushButton_sqr_root.clicked.connect(self.square_root)
         self.pushButton_cube_root.clicked.connect(self.cube_root)
-        self.pushButton_radical.clicked.connect(self.root)
+        self.pushButton_sin.clicked.connect(self.sin) 
+        self.pushButton_cos.clicked.connect(self.cos) 
+        self.pushButton_tan.clicked.connect(self.tan)
+        self.pushButton_sinh.clicked.connect(self.sinh) 
+        self.pushButton_cosh.clicked.connect(self.cosh) 
+        self.pushButton_tanh.clicked.connect(self.tanh)         
         self.data = ''
         self.data_eval = ''
+        
+        ##кнопка перевода в другую систему счисления
+        self.btnResult.clicked.connect(self.getResult_systems)
+        
+        ##кнопка построения графика
+        self.pushButton_draw.clicked.connect(self.func)
         
     ##реализация кнопки AC на калькуляторе(стирает все введенные ранее данные)
     def clear(self):
@@ -95,27 +108,59 @@ class MainWindow(QMainWindow):
             self.data_eval += '**(1/3)'
             self.result() 
             
-    ##
-    def root(self):
-        if self.data_eval:
-            self.data_eval += '**'
-            
     ##перевод числа в проценты
     def percent(self):
         if self.data_eval:
             self.data_eval += '/100'
             self.result()
             
-    ##ввод числа пи (пока не работет :c)
+    ##ввод числа пи
     def pi(self):
         self.data_eval += 'math.pi'
         self.result()
         
-    ##ввод случайного числа от 0 до 1 (пока не работает :c)
+    ##ввод случайного числа от 0 до 1
     def random(self):
         self.data_eval += 'random()'
         self.result()
+        
+    ##синус числа 
+    def sin(self): 
+        if self.data_eval: 
+            self.data_eval = "math.sin(math.radians({}))".format(self.data_eval) 
+            self.result() 
+    
+    ##косинус числа 
+    def cos(self): 
+        if self.data_eval: 
+            self.data_eval = "math.cos(math.radians({}))".format(self.data_eval) 
+            self.result() 
+    
+    ##тангенс числа 
+    def tan(self): 
+        if self.data_eval: 
+            self.data_eval = "math.tan(math.radians({}))".format(self.data_eval) 
+            self.result()
             
+    ##гиперболический синус 
+    def sinh(self): 
+        if self.data_eval: 
+            self.data_eval = "math.sinh(math.radians({}))".format(self.data_eval) 
+            self.result() 
+    
+    ##гиперболический косинус 
+    def cosh(self): 
+        if self.data_eval: 
+            self.data_eval = "math.cosh(math.radians({}))".format(self.data_eval) 
+            self.result() 
+        
+    ##гиперболический тангенс 
+    def tanh(self): 
+        if self.data_eval: 
+            self.data_eval = "math.tanh(math.radians({}))".format(self.data_eval) 
+            self.result()     
+    
+    ##результат калькулятора  
     def result(self):
         try:
             float(self.data_eval)
@@ -129,9 +174,35 @@ class MainWindow(QMainWindow):
             except:
                 pass
         self.data = ''
-    
         
-app = QApplication(sys.argv)
-ex = MainWindow()
-ex.show()
-sys.exit(app.exec_())
+    ##результат перевода в другую систему счисления
+    def getResult_systems(self):
+        try:
+            n1 = self.txtNum1.text()
+            n2 = int(self.txtNum2.text())
+            s = int(n1, n2)
+            self.lblSum.setText(str(s))
+        except:
+            msg = QtWidgets.QMessageBox()
+            msg.setWindowTitle('Ошибка ввода!')
+            msg.setText('Введите корректные данные!')
+            msg.setIcon(msg.Warning)
+            msg.exec()
+            
+    ##построение графика
+    def func(self):
+        if self.lineEdit.text():
+            self.widget.clear()
+            data_x = [i for i in range(self.spinBox_a.value(),self.spinBox_b.value())]
+            try:
+                function = lambda x: eval(self.lineEdit.text())
+                self.widget.plot(data_x, [function(i) for i in data_x], pen='r')
+            except:
+                pass
+    
+    
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    ex = MainWindow()
+    ex.show()
+    sys.exit(app.exec())
