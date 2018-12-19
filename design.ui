@@ -16,22 +16,22 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_3">
     <item row="5" column="2">
-     <widget class="QPushButton" name="pushButton_66">
+     <widget class="QPushButton" name="pushButton_cosh">
       <property name="toolTip">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="text">
-       <string/>
+       <string>cosh</string>
       </property>
      </widget>
     </item>
     <item row="4" column="3">
-     <widget class="QPushButton" name="pushButton_63">
+     <widget class="QPushButton" name="pushButton_tan">
       <property name="toolTip">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="text">
-       <string/>
+       <string>tan</string>
       </property>
      </widget>
     </item>
@@ -116,32 +116,32 @@
      </widget>
     </item>
     <item row="3" column="0">
-     <widget class="QPushButton" name="pushButton_45">
+     <widget class="QPushButton" name="pushButton_inverse_fraction">
       <property name="toolTip">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="text">
-       <string/>
+       <string>1/x</string>
       </property>
      </widget>
     </item>
     <item row="4" column="1">
-     <widget class="QPushButton" name="pushButton_73">
+     <widget class="QPushButton" name="pushButton_sin">
       <property name="toolTip">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="text">
-       <string/>
+       <string>sin</string>
       </property>
      </widget>
     </item>
     <item row="4" column="2">
-     <widget class="QPushButton" name="pushButton_68">
+     <widget class="QPushButton" name="pushButton_cos">
       <property name="toolTip">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="text">
-       <string/>
+       <string>cos</string>
       </property>
      </widget>
     </item>
@@ -199,22 +199,22 @@
      </widget>
     </item>
     <item row="2" column="5">
-     <widget class="QPushButton" name="pushButton_52">
+     <widget class="QPushButton" name="pushButton_ten_in_X">
       <property name="toolTip">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="text">
-       <string/>
+       <string>10^x</string>
       </property>
      </widget>
     </item>
     <item row="3" column="5">
-     <widget class="QPushButton" name="pushButton_50">
+     <widget class="QPushButton" name="pushButton_log">
       <property name="toolTip">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="text">
-       <string/>
+       <string>log</string>
       </property>
      </widget>
     </item>
@@ -288,12 +288,12 @@
      </widget>
     </item>
     <item row="3" column="2">
-     <widget class="QPushButton" name="pushButton_65">
+     <widget class="QPushButton" name="pushButton_root_3">
       <property name="toolTip">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="text">
-       <string/>
+       <string>3√x</string>
       </property>
      </widget>
     </item>
@@ -344,12 +344,12 @@
      </widget>
     </item>
     <item row="3" column="3">
-     <widget class="QPushButton" name="pushButton_60">
+     <widget class="QPushButton" name="pushButton_root_y">
       <property name="toolTip">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="text">
-       <string/>
+       <string>y√x</string>
       </property>
      </widget>
     </item>
@@ -407,22 +407,22 @@
      </widget>
     </item>
     <item row="5" column="5">
-     <widget class="QPushButton" name="pushButton_51">
+     <widget class="QPushButton" name="pushButton_pi">
       <property name="toolTip">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="text">
-       <string/>
+       <string>пи</string>
       </property>
      </widget>
     </item>
     <item row="5" column="1">
-     <widget class="QPushButton" name="pushButton_71">
+     <widget class="QPushButton" name="pushButton_sinh">
       <property name="toolTip">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="text">
-       <string/>
+       <string>sinh</string>
       </property>
      </widget>
     </item>
@@ -489,12 +489,12 @@
      </widget>
     </item>
     <item row="3" column="1">
-     <widget class="QPushButton" name="pushButton_70">
+     <widget class="QPushButton" name="pushButton_root_2">
       <property name="toolTip">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="text">
-       <string/>
+       <string>2√x</string>
       </property>
      </widget>
     </item>
@@ -509,12 +509,12 @@
      </widget>
     </item>
     <item row="5" column="3">
-     <widget class="QPushButton" name="pushButton_61">
+     <widget class="QPushButton" name="pushButton_tanh">
       <property name="toolTip">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="text">
-       <string/>
+       <string>tanh</string>
       </property>
      </widget>
     </item>
@@ -552,7 +552,7 @@
      <x>0</x>
      <y>0</y>
      <width>782</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
@@ -561,7 +561,7 @@
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="buttonGroup_binary"/>
   <buttongroup name="buttonGroup_numbers"/>
+  <buttongroup name="buttonGroup_binary"/>
  </buttongroups>
 </ui>
