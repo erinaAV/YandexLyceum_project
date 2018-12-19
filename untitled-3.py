@@ -1,35 +1,104 @@
 import sys
-# Импортируем наш интерфейс
-from QWERTY import *
-# from PyQt5 import QtCore, QtGui, QtWidgets
-
-class MyWin(QtWidgets.QMainWindow):
-    def __init__(self, parent=None):
-        QtWidgets.QWidget.__init__(self, parent)
-        self.ui = Ui_MainWindow()
-        self.ui.setupUi(self)     
-        
-        # Начало моего дописанного кода:
-        self.ui.btnResult.clicked.connect(self.getResult)
-        
-    # функция которая выполняется при нажатии на кнопку 
-    def getResult(self):
-        try:
-            n1 = self.ui.txtNum1.text()
-            n2 = int(self.ui.txtNum2.text())
-            s = int(n1, n2)
-            self.ui.lblSum.setText(str(s))
-        except:
-            msg = QtWidgets.QMessageBox()
-            msg.setWindowTitle('Ошибка ввода!')
-            msg.setText('Введите корректные данные!')
-            msg.setIcon(msg.Warning)
-            msg.exec()     
-
-        # Конец моего кода
-
-
-app = QtWidgets.QApplication(sys.argv)
-myapp = MyWin()
-myapp.show()
-sys.exit(app.exec_())
+from PyQt5.QtWidgets import QWidget, QApplication, QLabel, QPushButton
+#from PyQt5.QtGui import QPainter, QColor, QPen, QBrush
+from PyQt5.QtCore import Qt, QTimer
+ 
+class myApp(QWidget):
+ 
+    def __init__(self):
+ 
+        QWidget.__init__(self)
+ 
+        self.init_ui()
+ 
+    def init_ui(self):
+        self.speed = 10
+        self.timer = QTimer(self)
+        btn_left = QPushButton("РІР»РµРІРѕ", self)
+        btn_right = QPushButton("РІРїСЂР°РІРѕ", self)
+        btn_stop = QPushButton("stop", self)
+        btn_left.move(10, 10)
+        btn_right.move(350, 10)
+        btn_stop.move(180, 10)
+        self.x = 200
+        self.y = 150
+        self.setWindowTitle("Р±РµРіСѓС‰Р°СЏ СЃС‚СЂРѕРєР°")
+        self.label = QLabel("Р±РµРіСѓС‰Р°СЏ СЃС‚СЂРѕРєР°", self)
+        self.label.move(self.x, self.y)
+        self.setGeometry(300, 300, 450, 300)
+ 
+ 
+        btn_right.clicked.connect(self.buttonClicked)
+        btn_left.clicked.connect(self.buttonClicked)
+        btn_stop.clicked.connect(self.buttonClicked)
+ 
+ 
+ 
+ 
+        self.show()
+ 
+ 
+    def buttonClicked(self):
+        sender = self.sender()
+        if sender.text() == "РІРїСЂР°РІРѕ":
+            if self.timer.isActive():
+                self.timer.stop()
+                self.timer.timeout.disconnect()
+                self.timer.start(self.speed)
+                self.timer.timeout.connect(self.move_label_right)
+            else:
+                self.timer.start(self.speed)
+                self.timer.timeout.connect(self.move_label_right)
+ 
+ 
+ 
+ 
+        elif sender.text() == "РІР»РµРІРѕ":
+            if self.timer.isActive():
+                self.timer.stop()
+                self.timer.timeout.disconnect()
+                self.timer.start(self.speed)
+                self.timer.timeout.connect(self.move_label_left)
+            else:
+                self.timer.start(self.speed)
+                self.timer.timeout.connect(self.move_label_left)
+        elif sender.text() == "stop":
+            self.stop_move()
+ 
+    def move_label_left(self):
+        if self.x == -100:
+            self.x = 500
+            self.x = self.x - 0.5
+            self.label.move(self.x, self.y)
+ 
+        else:
+            self.x = self.x - 0.5
+            self.label.move(self.x, self.y)
+ 
+ 
+ 
+ 
+    def move_label_right(self):
+ 
+        if self.x == 500:
+            self.x = -100
+            self.x = self.x + 0.5
+            self.label.move(self.x, self.y)
+ 
+        else:
+            self.x = self.x + 0.5
+            self.label.move(self.x, self.y)
+ 
+    def stop_move(self):
+        if self.timer.isActive():
+            self.timer.stop()
+            self.timer.timeout.disconnect()
+ 
+ 
+ 
+ 
+if __name__ == '__main__':
+ 
+    app = QApplication(sys.argv)
+    ex = myApp()
+    sys.exit(app.exec_())

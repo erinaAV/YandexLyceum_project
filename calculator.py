@@ -3,7 +3,31 @@ from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow
 from PyQt5 import uic, QtCore, QtGui, QtWidgets
 import math
 from random import random
-#from QWERTY import *
+
+
+'''«Многофункциональный калькулятор»
+
+Возможности:
+
+1. Калькулятор (базовые функции, тригонометрические функции, возведение в степень,
+извлечение корней)
+
+2. Построение графиков функций
+
+3. Перевод из любой системы счисления в десятичную
+
+
+Инструкция:
+
+Калькулятор работает стандартно.
+
+Графики. Введите в поле функцию от «х» (напр. «х + 5»), нажмите построить.
+Приложение выведет график заданной вами функции.
+«Спинбоксы» позволяют отрегулировать масштаб.
+
+Для перевода в десятичную систему счисления необходимо ввести в верхнее поле число.
+В следующем поле ввести основание системы счисления от 2 до 36.
+После нажатие на кнопку «Выполнить» приложение выведет получившееся число.'''
 
 
 class MainWindow(QMainWindow):
@@ -29,7 +53,12 @@ class MainWindow(QMainWindow):
         self.pushButton_tan.clicked.connect(self.tan)
         self.pushButton_sinh.clicked.connect(self.sinh) 
         self.pushButton_cosh.clicked.connect(self.cosh) 
-        self.pushButton_tanh.clicked.connect(self.tanh)         
+        self.pushButton_tanh.clicked.connect(self.tanh)
+        self.pushButton_inverse_fraction.clicked.connect(self.inverse_fraction)
+        self.pushButton_log.clicked.connect(self.log)
+        self.pushButton_10x.clicked.connect(self.ten_x)
+        self.pushButton_e.clicked.connect(self.e) 
+        #self.pushButton_plus_minus.clicked.connect(self.plus_minus)
         self.data = ''
         self.data_eval = ''
         
@@ -41,9 +70,9 @@ class MainWindow(QMainWindow):
         
     ##реализация кнопки AC на калькуляторе(стирает все введенные ранее данные)
     def clear(self):
-        self.data = ''
-        self.data_eval = ''
-        self.table.display('0') 
+        self.data = '0'
+        self.data_eval = '0'
+        self.table.setText(str(self.data)) 
     
     def run(self):
         if self.sender().text() == '.':
@@ -52,11 +81,11 @@ class MainWindow(QMainWindow):
         if self.data != '0' or (self.data == '0' and self.sender().text() == '.'):
             self.data = self.data + self.sender().text()
             self.data_eval = self.data_eval + self.sender().text()
-            self.table.display(self.data)
+            self.table.setText(str(self.data))
         else:
             self.data = self.sender().text()
             self.data_eval = self.sender().text()
-            self.table.display(self.data)
+            self.table.setText(str(self.data))
             
     def calc(self):
         if self.data_eval:
@@ -119,6 +148,11 @@ class MainWindow(QMainWindow):
         self.data_eval += 'math.pi'
         self.result()
         
+    ##ввод числа е 
+    def e(self): 
+        self.data_eval += "math.e" 
+        self.result()    
+        
     ##ввод случайного числа от 0 до 1
     def random(self):
         self.data_eval += 'random()'
@@ -158,7 +192,30 @@ class MainWindow(QMainWindow):
     def tanh(self): 
         if self.data_eval: 
             self.data_eval = "math.tanh(math.radians({}))".format(self.data_eval) 
-            self.result()     
+            self.result()
+            
+    ##1/x 
+    def inverse_fraction(self): 
+        if self.data_eval: 
+            self.data_eval = "1/{}".format(self.data_eval) 
+            self.result()
+            
+    ##десятичный логарифм 
+    def log(self): 
+        if self.data_eval: 
+            self.data_eval = "math.log10({})".format(self.data_eval) 
+            self.result()
+            
+    ##возведение 10 в степень x
+    def ten_x(self):
+        if self.data_eval:
+            self.data_eval = "10**{}".format(self.data_eval)
+            self.result()
+            
+    def plus_minus(self):
+        if self.data_eval:
+            self.data_eval = '-{}'.format(self.data_eval)
+            self.result
     
     ##результат калькулятора  
     def result(self):
@@ -168,7 +225,7 @@ class MainWindow(QMainWindow):
             try:
                 self.data = eval(self.data_eval)
                 self.data_eval = str(self.data)
-                self.table.display(self.data)
+                self.table.setText(str(self.data))
             except ZeroDivisionError:
                 self.table.display('Error')
             except:

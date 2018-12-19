@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>908</width>
-    <height>651</height>
+    <height>708</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -19,22 +19,6 @@
   <property name="windowTitle">
    <string>Построение графика</string>
   </property>
-  <widget class="QPushButton" name="pushButton_factorial">
-   <property name="geometry">
-    <rect>
-     <x>-83</x>
-     <y>37</y>
-     <width>75</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="toolTip">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-   </property>
-   <property name="text">
-    <string>x!</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="pushButton_45">
    <property name="geometry">
     <rect>
@@ -70,40 +54,14 @@
   <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>20</y>
+     <x>20</x>
+     <y>10</y>
      <width>851</width>
-     <height>611</height>
+     <height>691</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="4" column="5">
-     <widget class="QPushButton" name="pushButton_2">
-      <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-      <property name="text">
-       <string>2</string>
-      </property>
-      <attribute name="buttonGroup">
-       <string notr="true">buttonGroup_numbers</string>
-      </attribute>
-     </widget>
-    </item>
-    <item row="2" column="5">
-     <widget class="QPushButton" name="pushButton_8">
-      <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-      <property name="text">
-       <string>8</string>
-      </property>
-      <attribute name="buttonGroup">
-       <string notr="true">buttonGroup_numbers</string>
-      </attribute>
-     </widget>
-    </item>
-    <item row="2" column="7">
+    <item row="2" column="8">
      <widget class="QPushButton" name="pushButton_multiply">
       <property name="text">
        <string>x</string>
@@ -111,16 +69,6 @@
       <attribute name="buttonGroup">
        <string notr="true">buttonGroup_binary</string>
       </attribute>
-     </widget>
-    </item>
-    <item row="1" column="4" colspan="2">
-     <widget class="QPushButton" name="pushButton_AC">
-      <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-      <property name="text">
-       <string>AC</string>
-      </property>
      </widget>
     </item>
     <item row="2" column="4">
@@ -169,7 +117,7 @@
       </property>
      </widget>
     </item>
-    <item row="7" column="0" rowspan="9" colspan="5">
+    <item row="8" column="0" rowspan="7" colspan="5">
      <widget class="PlotWidget" name="widget"/>
     </item>
     <item row="2" column="1">
@@ -182,7 +130,7 @@
       </property>
      </widget>
     </item>
-    <item row="20" column="3">
+    <item row="19" column="3">
      <widget class="QPushButton" name="pushButton_draw">
       <property name="text">
        <string>Построить</string>
@@ -193,6 +141,13 @@
      <widget class="QPushButton" name="pushButton_random">
       <property name="text">
        <string>Random</string>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="0" colspan="9">
+     <widget class="Line" name="line">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
       </property>
      </widget>
     </item>
@@ -226,7 +181,17 @@
       </property>
      </widget>
     </item>
-    <item row="6" column="7">
+    <item row="1" column="4">
+     <widget class="QPushButton" name="pushButton_AC">
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string>AC</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="8">
      <widget class="QPushButton" name="pushButton_equally">
       <property name="text">
        <string>=</string>
@@ -236,7 +201,49 @@
       </attribute>
      </widget>
     </item>
-    <item row="4" column="6">
+    <item row="4" column="5" colspan="2">
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string>2</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_numbers</string>
+      </attribute>
+     </widget>
+    </item>
+    <item row="2" column="3">
+     <widget class="QPushButton" name="pushButton_factorial">
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string>x!</string>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="5" rowspan="7">
+     <widget class="Line" name="line_2">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="13" column="6" colspan="2">
+     <widget class="QLabel" name="lblSum">
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="7">
      <widget class="QPushButton" name="pushButton_3">
       <property name="toolTip">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -249,13 +256,13 @@
       </attribute>
      </widget>
     </item>
-    <item row="6" column="6">
+    <item row="6" column="7">
      <widget class="QPushButton" name="pushButton_comma">
       <property name="toolTip">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="text">
-       <string>,</string>
+       <string>.</string>
       </property>
      </widget>
     </item>
@@ -269,7 +276,7 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="7">
+    <item row="4" column="8">
      <widget class="QPushButton" name="pushButton_plus">
       <property name="text">
        <string>+</string>
@@ -277,16 +284,6 @@
       <attribute name="buttonGroup">
        <string notr="true">buttonGroup_binary</string>
       </attribute>
-     </widget>
-    </item>
-    <item row="2" column="3">
-     <widget class="QPushButton" name="pushButton_factorial_2">
-      <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-      <property name="text">
-       <string>x!</string>
-      </property>
      </widget>
     </item>
     <item row="1" column="2">
@@ -299,10 +296,10 @@
       </property>
      </widget>
     </item>
-    <item row="21" column="1">
+    <item row="20" column="1">
      <widget class="QSpinBox" name="spinBox_a"/>
     </item>
-    <item row="1" column="7">
+    <item row="1" column="8">
      <widget class="QPushButton" name="pushButton_division">
       <property name="toolTip">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -315,23 +312,21 @@
       </attribute>
      </widget>
     </item>
-    <item row="3" column="5">
-     <widget class="QPushButton" name="pushButton_5">
-      <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-      <property name="whatsThis">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;5&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
+    <item row="12" column="6" colspan="2">
+     <widget class="QLabel" name="label">
       <property name="text">
-       <string>5</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;=&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
-      <attribute name="buttonGroup">
-       <string notr="true">buttonGroup_numbers</string>
-      </attribute>
      </widget>
     </item>
-    <item row="3" column="6">
+    <item row="1" column="0">
+     <widget class="QPushButton" name="pushButton_10x">
+      <property name="text">
+       <string>10^x</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="7">
      <widget class="QPushButton" name="pushButton_6">
       <property name="toolTip">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -357,7 +352,7 @@
       </attribute>
      </widget>
     </item>
-    <item row="3" column="7">
+    <item row="3" column="8">
      <widget class="QPushButton" name="pushButton_minus">
       <property name="text">
        <string>-</string>
@@ -367,14 +362,57 @@
       </attribute>
      </widget>
     </item>
-    <item row="21" column="2">
+    <item row="11" column="6" colspan="2">
+     <widget class="QPushButton" name="btnResult">
+      <property name="text">
+       <string>Выполнить</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="5" colspan="2">
+     <widget class="QPushButton" name="pushButton_plus_minus">
+      <property name="text">
+       <string>±</string>
+      </property>
+     </widget>
+    </item>
+    <item row="20" column="2">
      <widget class="QSpinBox" name="spinBox_b">
       <property name="value">
        <number>10</number>
       </property>
      </widget>
     </item>
-    <item row="20" column="1" colspan="2">
+    <item row="2" column="5" colspan="2">
+     <widget class="QPushButton" name="pushButton_8">
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string>8</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_numbers</string>
+      </attribute>
+     </widget>
+    </item>
+    <item row="3" column="5" colspan="2">
+     <widget class="QPushButton" name="pushButton_5">
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="whatsThis">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;5&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string>5</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_numbers</string>
+      </attribute>
+     </widget>
+    </item>
+    <item row="19" column="1" colspan="2">
      <widget class="QLineEdit" name="lineEdit">
       <property name="maximumSize">
        <size>
@@ -384,7 +422,7 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="6">
+    <item row="1" column="7">
      <widget class="QPushButton" name="pushButton_percent">
       <property name="toolTip">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -404,49 +442,6 @@
       </property>
      </widget>
     </item>
-    <item row="6" column="2">
-     <widget class="QPushButton" name="pushButton_pi">
-      <property name="text">
-       <string>pi</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="2">
-     <widget class="QPushButton" name="pushButton_cube_root">
-      <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-      <property name="text">
-       <string>3√x</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="4" colspan="2">
-     <widget class="QPushButton" name="pushButton_0">
-      <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-      <property name="text">
-       <string>0</string>
-      </property>
-      <attribute name="buttonGroup">
-       <string notr="true">buttonGroup_numbers</string>
-      </attribute>
-     </widget>
-    </item>
-    <item row="2" column="6">
-     <widget class="QPushButton" name="pushButton_9">
-      <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-      <property name="text">
-       <string>9</string>
-      </property>
-      <attribute name="buttonGroup">
-       <string notr="true">buttonGroup_numbers</string>
-      </attribute>
-     </widget>
-    </item>
     <item row="4" column="2">
      <widget class="QPushButton" name="pushButton_cosh">
       <property name="text">
@@ -454,36 +449,14 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="1" colspan="7">
-     <widget class="QLCDNumber" name="table"/>
-    </item>
-    <item row="12" column="5">
-     <widget class="QLabel" name="lblSum">
-      <property name="font">
-       <font>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
+    <item row="6" column="2">
+     <widget class="QPushButton" name="pushButton_pi">
       <property name="text">
-       <string/>
+       <string>pi</string>
       </property>
      </widget>
     </item>
-    <item row="11" column="5">
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;=&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-    </item>
-    <item row="10" column="5">
-     <widget class="QPushButton" name="btnResult">
-      <property name="text">
-       <string>Выполнить</string>
-      </property>
-     </widget>
-    </item>
-    <item row="9" column="5">
+    <item row="10" column="6" colspan="2">
      <widget class="QLineEdit" name="txtNum2">
       <property name="font">
        <font>
@@ -498,7 +471,7 @@
       </property>
      </widget>
     </item>
-    <item row="8" column="5">
+    <item row="9" column="6" colspan="2">
      <widget class="QLineEdit" name="txtNum1">
       <property name="font">
        <font>
@@ -507,6 +480,75 @@
       </property>
       <property name="toolTip">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Введите число в системе счисления от &lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; до &lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;36&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; и результат будет в &lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;10&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;-ной сс.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2">
+     <widget class="QPushButton" name="pushButton_cube_root">
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string>3√x</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="4" colspan="3">
+     <widget class="QPushButton" name="pushButton_0">
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_numbers</string>
+      </attribute>
+     </widget>
+    </item>
+    <item row="2" column="7">
+     <widget class="QPushButton" name="pushButton_9">
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="text">
+       <string>9</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_numbers</string>
+      </attribute>
+     </widget>
+    </item>
+    <item row="0" column="3" colspan="6">
+     <widget class="QLabel" name="table">
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;&lt;span style=&quot; font-size:64pt;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QPushButton" name="pushButton_inverse_fraction">
+      <property name="text">
+       <string>1/x</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QPushButton" name="pushButton_log">
+      <property name="text">
+       <string>log</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QPushButton" name="pushButton_e">
+      <property name="text">
+       <string>e</string>
       </property>
      </widget>
     </item>
