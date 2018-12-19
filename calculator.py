@@ -33,8 +33,8 @@ from random import random
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('Work.ui',self)
-        ##кнопки калькулятора
+        uic.loadUi('Work.ui', self)
+        # кнопки калькулятора
         [i.clicked.connect(self.run) for i in self.buttonGroup_numbers.buttons()]
         [i.clicked.connect(self.calc) for i in self.buttonGroup_binary.buttons()]
         self.pushButton_comma.clicked.connect(self.run)
@@ -45,7 +45,7 @@ class MainWindow(QMainWindow):
         self.pushButton_factorial.clicked.connect(self.fact)
         self.pushButton_percent.clicked.connect(self.percent)
         self.pushButton_pi.clicked.connect(self.pi)
-        self.pushButton_random.clicked.connect(self.random)
+        self.pushButton_random.clicked.connect(self.random_new)
         self.pushButton_sqr_root.clicked.connect(self.square_root)
         self.pushButton_cube_root.clicked.connect(self.cube_root)
         self.pushButton_sin.clicked.connect(self.sin) 
@@ -57,18 +57,19 @@ class MainWindow(QMainWindow):
         self.pushButton_inverse_fraction.clicked.connect(self.inverse_fraction)
         self.pushButton_log.clicked.connect(self.log)
         self.pushButton_10x.clicked.connect(self.ten_x)
-        self.pushButton_e.clicked.connect(self.e) 
-        #self.pushButton_plus_minus.clicked.connect(self.plus_minus)
+        self.pushButton_e.clicked.connect(self.e)
+        self.pushButton_x4.clicked.connect(self.x4)
+        self.pushButton_root4.clicked.connect(self.root4)
         self.data = ''
         self.data_eval = ''
         
-        ##кнопка перевода в другую систему счисления
+        # кнопка перевода в другую систему счисления
         self.btnResult.clicked.connect(self.getResult_systems)
         
-        ##кнопка построения графика
+        # кнопка построения графика
         self.pushButton_draw.clicked.connect(self.func)
         
-    ##реализация кнопки AC на калькуляторе(стирает все введенные ранее данные)
+    # реализация кнопки AC на калькуляторе(стирает все введенные ранее данные)
     def clear(self):
         self.data = '0'
         self.data_eval = '0'
@@ -99,8 +100,8 @@ class MainWindow(QMainWindow):
                 '**').replace(':', '/').replace('x', '*').replace('pi',
                 'math.pi').replace('Random', 'random.random()')
             
-    ##факториал числа   
-    def real_fact(self,n):
+    # факториал числа   
+    def real_fact(self, n):
         if n < 0:
             return -1
         if n == 0:
@@ -113,100 +114,112 @@ class MainWindow(QMainWindow):
             self.data_eval = "self.real_fact({})".format(self.data_eval)
             self.result()  
             
-    ##возведение числа в квадрат        
+    # возведение числа в квадрат        
     def square(self):
         if self.data_eval:
             self.data_eval += '**2'
             self.result() 
     
-    ##возведение числа в куб
+    # возведение числа в куб
     def cube(self):
         if self.data_eval:
             self.data_eval += '**3'
             self.result()
             
-    ##квадратный корень из числа
+    # квадратный корень из числа
     def square_root(self):
         if self.data_eval:
             self.data_eval += '**0.5'
             self.result()
     
-    ##кубический корень из числа      
+    # кубический корень из числа      
     def cube_root(self):
         if self.data_eval:
             self.data_eval += '**(1/3)'
-            self.result() 
-            
-    ##перевод числа в проценты
-    def percent(self):
-        if self.data_eval:
-            self.data_eval += '/100'
             self.result()
             
-    ##ввод числа пи
+    # возведение числа в четвертую степень   
+    def x4(self):
+        if self.data_eval:
+            self.data_eval += "**4"
+            self.result() 
+     
+    # корень из числа четверной степени 
+    def root4(self): 
+        if self.data_eval: 
+            self.data_eval += "{}**0.25".format(self.data_eval) 
+            self.result()    
+            
+    # перевод числа в проценты
+    def percent(self):
+        if self.data_eval:
+            self.data_eval = "{}/100".format(self.data_eval) 
+            self.result()
+            
+    # ввод числа пи
     def pi(self):
         self.data_eval += 'math.pi'
         self.result()
         
-    ##ввод числа е 
+    # ввод числа е 
     def e(self): 
         self.data_eval += "math.e" 
         self.result()    
         
-    ##ввод случайного числа от 0 до 1
-    def random(self):
+    # ввод случайного числа от 0 до 1
+    def random_new(self):
         self.data_eval += 'random()'
         self.result()
         
-    ##синус числа 
+    # синус числа 
     def sin(self): 
         if self.data_eval: 
             self.data_eval = "math.sin(math.radians({}))".format(self.data_eval) 
             self.result() 
     
-    ##косинус числа 
+    # косинус числа 
     def cos(self): 
         if self.data_eval: 
             self.data_eval = "math.cos(math.radians({}))".format(self.data_eval) 
             self.result() 
     
-    ##тангенс числа 
+    # тангенс числа 
     def tan(self): 
         if self.data_eval: 
             self.data_eval = "math.tan(math.radians({}))".format(self.data_eval) 
             self.result()
             
-    ##гиперболический синус 
+    # гиперболический синус 
     def sinh(self): 
         if self.data_eval: 
             self.data_eval = "math.sinh(math.radians({}))".format(self.data_eval) 
             self.result() 
     
-    ##гиперболический косинус 
+    # гиперболический косинус 
     def cosh(self): 
         if self.data_eval: 
             self.data_eval = "math.cosh(math.radians({}))".format(self.data_eval) 
             self.result() 
         
-    ##гиперболический тангенс 
+    # гиперболический тангенс 
     def tanh(self): 
         if self.data_eval: 
             self.data_eval = "math.tanh(math.radians({}))".format(self.data_eval) 
             self.result()
             
-    ##1/x 
+    # 1/x 
     def inverse_fraction(self): 
         if self.data_eval: 
             self.data_eval = "1/{}".format(self.data_eval) 
             self.result()
             
-    ##десятичный логарифм 
+    # десятичный логарифм 
     def log(self): 
         if self.data_eval: 
             self.data_eval = "math.log10({})".format(self.data_eval) 
             self.result()
             
-    ##возведение 10 в степень x
+    # возведение 10 в степень x
     def ten_x(self):
         if self.data_eval:
             self.data_eval = "10**{}".format(self.data_eval)
@@ -217,7 +230,7 @@ class MainWindow(QMainWindow):
             self.data_eval = '-{}'.format(self.data_eval)
             self.result
     
-    ##результат калькулятора  
+    # результат калькулятора  
     def result(self):
         try:
             float(self.data_eval)
@@ -232,7 +245,7 @@ class MainWindow(QMainWindow):
                 pass
         self.data = ''
         
-    ##результат перевода в другую систему счисления
+    # результат перевода в другую систему счисления
     def getResult_systems(self):
         try:
             n1 = self.txtNum1.text()
@@ -246,11 +259,11 @@ class MainWindow(QMainWindow):
             msg.setIcon(msg.Warning)
             msg.exec()
             
-    ##построение графика
+    # построение графика
     def func(self):
         if self.lineEdit.text():
             self.widget.clear()
-            data_x = [i for i in range(self.spinBox_a.value(),self.spinBox_b.value())]
+            data_x = [i for i in range(self.spinBox_a.value(), self.spinBox_b.value())]
             try:
                 function = lambda x: eval(self.lineEdit.text())
                 self.widget.plot(data_x, [function(i) for i in data_x], pen='r')
