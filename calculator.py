@@ -9,7 +9,8 @@ from random import random
 
 Возможности:
 
-1. Калькулятор (базовые функции, тригонометрические функции, возведение в степень,
+1. Калькулятор (базовые функции, тригонометрические функции, 
+возведение в степень,
 извлечение корней)
 
 2. Построение графиков функций
@@ -25,7 +26,8 @@ from random import random
 Приложение выведет график заданной вами функции.
 «Спинбоксы» позволяют отрегулировать масштаб.
 
-Для перевода в десятичную систему счисления необходимо ввести в верхнее поле число.
+Для перевода в десятичную систему счисления 
+необходимо ввести в верхнее поле число.
 В следующем поле ввести основание системы счисления от 2 до 36.
 После нажатие на кнопку «Выполнить» приложение выведет получившееся число.'''
 
@@ -35,8 +37,10 @@ class MainWindow(QMainWindow):
         super().__init__()
         uic.loadUi('Work.ui', self)
         # кнопки калькулятора
-        [i.clicked.connect(self.run) for i in self.buttonGroup_numbers.buttons()]
-        [i.clicked.connect(self.calc) for i in self.buttonGroup_binary.buttons()]
+        [i.clicked.connect(self.run) for i in 
+         self.buttonGroup_numbers.buttons()]
+        [i.clicked.connect(self.calc) for i in 
+         self.buttonGroup_binary.buttons()]
         self.pushButton_comma.clicked.connect(self.run)
         self.pushButton_equally.clicked.connect(self.result)
         self.pushButton_AC.clicked.connect(self.clear)
@@ -79,7 +83,8 @@ class MainWindow(QMainWindow):
         if self.sender().text() == '.':
             if '.' in self.data:
                 return
-        if self.data != '0' or (self.data == '0' and self.sender().text() == '.'):
+        if self.data != '0' or (self.data == '0' and 
+                                self.sender().text() == '.'):
             self.data = self.data + self.sender().text()
             self.data_eval = self.data_eval + self.sender().text()
             self.table.setText(str(self.data))
@@ -94,11 +99,14 @@ class MainWindow(QMainWindow):
             if (self.data_eval[-1] not in ['+', '-', ':', 'x', 'x^y', 'y√x']):
                 self.data_eval += self.sender().text()
             else:
-                self.data_eval = self.data_eval[0: len(self.data_eval) -
-                                                1] + self.sender().text()
-            self.data_eval = self.data_eval.replace('x^y',
-                '**').replace(':', '/').replace('x', '*').replace('pi',
-                'math.pi').replace('Random', 'random.random()')
+                self.data_eval = self.data_eval[0: len(self.data_eval) 
+                                                - 1] + self.sender().text()
+            self.data_eval = self.data_eval.replace(
+                'x^y', '**').replace(
+                    ':', '/').replace(
+                        'x', '*').replace(
+                            'pi', 'math.pi').replace(
+                                'Random', 'random.random()')
             
     # факториал числа   
     def real_fact(self, n):
@@ -174,37 +182,43 @@ class MainWindow(QMainWindow):
     # синус числа 
     def sin(self): 
         if self.data_eval: 
-            self.data_eval = "math.sin(math.radians({}))".format(self.data_eval) 
+            self.data_eval = \
+                "math.sin(math.radians({}))".format(self.data_eval) 
             self.result() 
     
     # косинус числа 
     def cos(self): 
         if self.data_eval: 
-            self.data_eval = "math.cos(math.radians({}))".format(self.data_eval) 
+            self.data_eval = \
+                "math.cos(math.radians({}))".format(self.data_eval) 
             self.result() 
     
     # тангенс числа 
     def tan(self): 
         if self.data_eval: 
-            self.data_eval = "math.tan(math.radians({}))".format(self.data_eval) 
+            self.data_eval = \
+                "math.tan(math.radians({}))".format(self.data_eval) 
             self.result()
             
     # гиперболический синус 
     def sinh(self): 
         if self.data_eval: 
-            self.data_eval = "math.sinh(math.radians({}))".format(self.data_eval) 
+            self.data_eval = \
+                "math.sinh(math.radians({}))".format(self.data_eval) 
             self.result() 
     
     # гиперболический косинус 
     def cosh(self): 
         if self.data_eval: 
-            self.data_eval = "math.cosh(math.radians({}))".format(self.data_eval) 
+            self.data_eval = \
+                "math.cosh(math.radians({}))".format(self.data_eval) 
             self.result() 
         
     # гиперболический тангенс 
     def tanh(self): 
         if self.data_eval: 
-            self.data_eval = "math.tanh(math.radians({}))".format(self.data_eval) 
+            self.data_eval = \
+                "math.tanh(math.radians({}))".format(self.data_eval) 
             self.result()
             
     # 1/x 
@@ -263,10 +277,11 @@ class MainWindow(QMainWindow):
     def func(self):
         if self.lineEdit.text():
             self.widget.clear()
-            data_x = [i for i in range(self.spinBox_a.value(), self.spinBox_b.value())]
+            data_x = [i for i in
+                      range(self.spinBox_a.value(), self.spinBox_b.value())]
             try:
-                function = lambda x: eval(self.lineEdit.text())
-                self.widget.plot(data_x, [function(i) for i in data_x], pen='r')
+                self.widget.plot(data_x, [eval(self.lineEdit.text()) for i in
+                                          data_x], pen='r')
             except:
                 pass
     
