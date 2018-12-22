@@ -56,6 +56,11 @@ class MainWindow(QMainWindow):
         self.pushButton_e.clicked.connect(self.e)
         self.pushButton_x4.clicked.connect(self.x4)
         self.pushButton_root4.clicked.connect(self.root4)
+        self.pushButton_asinh.clicked.connect(self.asinh)
+        self.pushButton_acosh.clicked.connect(self.acosh)
+        self.pushButton_atanh.clicked.connect(self.atanh)  
+        self.pushButton_degrees.clicked.connect(self.degrees)  
+        self.pushButton_radians.clicked.connect(self.radians)  
         self.data = ''
         self.data_eval = ''
         
@@ -212,6 +217,41 @@ class MainWindow(QMainWindow):
             self.data_eval = \
                 "math.tanh(math.radians({}))".format(self.data_eval) 
             self.result()
+            
+    # обратный гиперболический синус
+    def asinh(self):
+        if self.data_eval: 
+            self.data_eval = \
+                "math.asinh(math.radians({}))".format(self.data_eval) 
+            self.result()
+    
+    # обратный гиперболический косинус
+    def acosh(self):
+        if self.data_eval: 
+            self.data_eval = \
+                "math.acosh(math.radians({}))".format(self.data_eval) 
+            self.result()     
+       
+    # обратный гиперболический тангенс
+    def atanh(self):
+        if self.data_eval: 
+            self.data_eval = \
+                    "math.atanh(math.radians({}))".format(self.data_eval) 
+            self.result()
+        
+    # перевод в градусы
+    def degrees(self):
+        if self.data_eval: 
+            self.data_eval = \
+                    "math.degrees({})".format(self.data_eval) 
+            self.result()   
+    
+    # перевод в радианы
+    def radians(self):
+        if self.data_eval: 
+            self.data_eval = \
+                    "math.radians({})".format(self.data_eval) 
+            self.result()        
             
     # 1/x 
     def inverse_fraction(self): 
