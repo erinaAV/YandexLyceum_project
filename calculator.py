@@ -72,7 +72,7 @@ class MainWindow(QMainWindow):
     # реализация кнопки AC на калькуляторе(стирает все введенные ранее данные)
     def clear(self):
         self.data = '0'
-        self.data_eval = '0'
+        self.data_eval = ''
         self.table.setText(str(self.data)) 
     
     def run(self):
@@ -91,7 +91,7 @@ class MainWindow(QMainWindow):
     def calc(self):
         if self.data_eval:
             self.result()
-            if (self.data_eval[-1] not in ['+', '-', ':', 'x', 'x^y', 'y√x']):
+            if (self.data_eval[-1] not in ['+', '-', ':', 'x', 'x^y']):
                 self.data_eval += self.sender().text()
             else:
                 self.data_eval = self.data_eval[0: len(self.data_eval) -
@@ -153,7 +153,7 @@ class MainWindow(QMainWindow):
     # перевод числа в проценты
     def percent(self):
         if self.data_eval:
-            self.data_eval = "{}/100".format(self.data_eval) 
+            self.data_eval += "/100" 
             self.result()
             
     # ввод числа пи
@@ -224,11 +224,6 @@ class MainWindow(QMainWindow):
         if self.data_eval:
             self.data_eval = "10**{}".format(self.data_eval)
             self.result()
-            
-    def plus_minus(self):
-        if self.data_eval:
-            self.data_eval = '-{}'.format(self.data_eval)
-            self.result
     
     # результат калькулятора  
     def result(self):
